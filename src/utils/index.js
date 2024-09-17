@@ -246,7 +246,7 @@ export function acceptPropAsAcceptAttr(accept) {
       Object.entries(accept)
         .reduce((a, [mimeType, ext]) => [...a, mimeType, ...ext], [])
         // Silently discard invalid entries as pickerOptionsFromAccept warns about these
-        .filter((v) => isMIMEType(v) || isExt(v))
+        .filter((v) => isMIMEType(v) && isExt(v))
         .join(",")
     );
   }
